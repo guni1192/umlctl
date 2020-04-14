@@ -1,0 +1,29 @@
+kernel: /usr/bin/vmlinux
+rootfsType: hostfs
+rootFlags: /tmp/runu
+io: rw
+memory: 2G
+network:
+  - name: eth0
+    type: tuntap
+    gateway: tap0
+    address: 192.168.154.254
+filesystem:
+  - name: ubd0
+init: /sbin/initial_uml.sh
+console:
+  type: pts
+  target:
+    - name: con0
+      fd:
+        - 0
+        - 1
+    - name: con1
+      fd: null
+  # type: ssl
+  # target:
+  #   - name: xterm
+  # type: ssl
+  # target:
+  #   - port: 9000
+
