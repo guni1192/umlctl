@@ -1,3 +1,5 @@
+mod cli;
+
 fn main() {
-    println!("Hello, world!");
+    let _app_matches = cli::app_config().get_matches();
 }
